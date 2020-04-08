@@ -1,0 +1,23 @@
+version: '3'
+services:
+
+  onboard:
+    build: .
+    restart: on-failure
+    ports:
+      - 8080:8080
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      RABBIT_HOST: rabbitmq
+    depends_on:
+      - rabbitmq
+    links:
+      - rabbitmq
+
+    rabbitmq:
+      image: rabbitmq:3
+
+
+
+
+

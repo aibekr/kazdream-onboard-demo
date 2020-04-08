@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    hikari:
+      connection-timeout: 20000
+      maximumPoolSize: 5
+    url: jdbc:h2:mem:testdb
+    password:
+    username:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+  profiles:
+    active: dev
+server:
+  servlet:
+    context-path: /api/v1
+rabbitmq:
+ host: ${RABBIT_HOST}
